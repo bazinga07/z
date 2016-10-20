@@ -1,0 +1,92 @@
+//interface strategy
+
+public interface strategy {
+public int op(int num1,int num2);
+}
+
+
+//context class
+
+public class context {
+		
+		private strategy strategy;
+		public context (strategy strategy)
+		{
+			this.strategy=strategy;
+			
+		}
+		
+		public int executeStrategy(int num1,int num2)
+		{
+			return strategy.op(num1, num2);
+			
+		}
+	}
+
+
+
+
+//interface add
+
+public class add implements strategy{
+public int op(int num1,int num2)
+{
+	System.out.println("Addition of no :99+10="+(num1 + num2));
+	return num1+num2;
+	
+}
+}
+
+
+//interface sub
+
+
+public class sub implements strategy {
+	public int op(int num1,int num2)
+	{
+		System.out.println("Substraction of no :99-10="+(num1 - num2));
+		return num1-num2;
+	}
+}
+
+
+//interface mul
+
+
+public class mul implements strategy{
+	public int op(int num1,int num2)
+	{
+		System.out.println("Multiplication of no :99*10="+(num1 * num2));
+		return num1*num2;
+	}
+	}
+
+
+
+// main
+
+
+
+public class pattern
+{
+	public static void main(String[] args)
+	{
+		context context  = new context(new add());
+		context.executeStrategy(99,10);
+		
+		
+		context  = new context (new sub());
+		context.executeStrategy(99,10);
+		
+		context = new context (new mul());
+		context.executeStrategy(99,10);
+		
+		
+
+	}
+	
+
+}
+
+
+/////////////////////// 
